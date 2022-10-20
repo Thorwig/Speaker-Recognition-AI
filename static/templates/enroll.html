@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Speaker recognition</title>
+    <link rel="stylesheet" type= "text/css" href="../styles/form.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav class="menu" >
+        <li><a href="" class="active">Enroll</a></li>
+        <li><a href="list.html" >List</a></li>
+        <li><a href="Identification.html" >Identification</a></li> 
+    </nav>
+
+    
+    <div class="col">
+        <br>
+        <h2>Enroll</h2>
+        <br><br>
+        <p>
+            <label for="firstname"></label>
+            <input type="text" id="firstname" class="enroll_input" name="fname" placeholder="First Name">
+            <br><br>
+            <label for="lastname"></label>
+            <input type="text" id="lastname" class="enroll_input" name="lname" placeholder="Last Name">
+            <br><br>
+            <label>Voice sample :</label>
+            <button class="btn-grad" id="startRecording">Start recording</button>
+            <button class="btn-grad" id="stopRecording" disabled style="display: none">Stop recording - Enroll</button>
+        </p>
+        <br><br>
+        <span id="enroll_output"></span>
+    </div>
+
+    
+    <span class="result" id="verify_output"></span>
+</body>
+<script>
+    navigator
+        .mediaDevices
+        .getUserMedia({audio: true})
+        .then(stream => { handlerFunction(stream) });
+
+    function handlerFunction(stream) {
+        rec = new MediaRecorder(stream);
+        rec.ondataavailable = e => {
+            audioChunks.push(e.data);
+            if (rec.state == "inactive") {
+                let blob = new Blob(audioChunks, {type: 'audio/mpeg-3'});
+                sendData(blob);
+            }
+        }
+    }
+    //Send data to backend
+    function sendData(data) {
+        var form = new FormData();
+        form.append('file', data, 'data.mp3');
+        form.append('title', 'data.mp3');
+        form.append('firstname', firstname.value);
+        form.append('lastname', lastname.value);
+
+        $.ajax({
+            type: 'POST',
+            url: '/enroll',
+            data: form,
+            cache: false,
+            processData: false,
+            contentType: false
+        }).done(function(data) {
+            console.log(data);
+            enroll_output.innerHTML="The audio has been enrolled successfully !"
+
+        });
+    }
+
+    //Start recording button 
+    startRecording.onclick = e => {
+        startRecording.disabled = true;
+        firstname.disabled = true;
+        lastname.disabled = true;
+        setTimeout(() => { document.getElementById("startRecording").style.display = "none"; document.getElementById("stopRecording").style.display = "inherit"; stopRecording.disabled = false; }, 4000);
+        audioChunks = [];
+        verify_output.innerHTML ="Recording..."
+        rec.start();
+    };
+
+    //Stop recording button 
+    stopRecording.onclick = e => {
+        verify_output.innerHTML =" "
+        startRecording.disabled = true;
+        stopRecording.disabled = true;
+        document.getElementById("startRecording").style.display = "inherit"; 
+        document.getElementById("stopRecording").style.display = "none";
+        rec.stop();
+    };
+</script>
+</html>

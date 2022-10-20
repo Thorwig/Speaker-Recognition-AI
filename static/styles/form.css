@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+  letter-spacing: 1.1px;
+  overflow: hidden;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  background: white;
+  font-family: "Varela Round", sans-serif;
+}
+
+a{
+  text-decoration: none;
+  transition: all 0.45s;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  height: 50px;
+  list-style: none;
+  background-color: white;
+  box-shadow: 0 4px 3px -2px lightgray;
+}
+
+.menu li {
+  width: 200px;
+  align-items: center;
+}
+
+.menu a {
+  font-size: 22px;
+  text-decoration: none;
+  transition: all 0.45s;
+}
+
+.menu a:hover {
+  background: -webkit-linear-gradient(45deg, #E44D26 0%, #F16529 80%);
+    -webkit-background-clip: text;
+            background-clip : text;
+    -webkit-text-fill-color: transparent;
+}
+
+button:disabled,button[disabled]{
+            
+  background-image: linear-gradient(to right, #283048 0%, #859398  51%, #283048  100%);
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  
+}
+
+button[disabled]:hover{
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+  cursor: default;
+}
+
+  
+
+.active {
+  background: -webkit-linear-gradient(45deg, #E44D26 0%, #F16529  51%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.center-align-image{
+  display: flex;
+  align-items: center;
+  height: 30px;
+}
+
+
+.logo{
+  object-fit: cover;
+  position: absolute;
+  width: auto;
+  height: 30px;
+  left: 5%;
+  top: 0.8%;
+}
+
+.enroll_input{
+  width: 36%;
+  font-size: large;
+  border: none;
+  border-bottom: 2px solid #E44D26
+}
+
+#search{
+  color: #333;
+  border-radius: 0.2rem;
+  background-color: white;
+  border: none;
+  width: 100%;
+  display: block;
+  border-bottom: 0.3rem solid transparent;
+  transition: all 0.3s;
+}
+
+input:focus{
+  outline: none;
+}
+
+h2{
+  text-align: center;
+  margin-right: 65%;
+}
+.container{
+  display:flex;
+
+  margin-top: 10%;
+  position: sticky;
+}
+
+.col1{
+  width:50%;
+}
+.tablegen{
+  height: 400px;
+  overflow-y: auto ;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 5%;
+}
+
+.col2{
+  width:50%;
+  margin-left: 20%;
+}
+
+.col{
+  width: 50%;
+  margin-left: 42%;
+  margin-top : 10%;
+}
+
+.message{
+  text-align: center;
+}
+
+.btn-grad {
+  background-image: linear-gradient(to right, #E44D26 0%, #F16529  51%, #E44D26  100%);
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  border: #E44D26;
+  display: block;
+  width: 35%;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+  cursor : pointer;
+  
+}
+
+.result{
+  margin-left: 40%;
+  font-size: large;
+}
+
+.big_image{
+  max-width: 100%;
+  height: auto;
+}
+
+#btn-accueil{
+  font-size: 22px;
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+
+header{
+  position : sticky;
+  top:0;
+}
+
+th {
+padding: 2%;
+border: 1px solid #ccc ;
+background: #eee;
+}
+
+td{
+  border: 1px solid #ccc ;
+  
+}
+
+#trigger{
+  height: 5%;
+  width: auto;
+}
+
+.delbutton{
+  width: 5%;
+}

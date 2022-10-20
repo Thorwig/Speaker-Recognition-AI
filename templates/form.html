@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Speaker recognition</title>
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='styles/form.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav class="menu" >
+        <div class="center-align-image">
+            <a href="/"><img class="logo" src="{{ url_for('static',filename='resources/logo.jpg') }}"></a>
+        </div>  
+        <li ><a href="{{ url_for('static',filename='templates/Enroll.html') }}">Enroll</a></li>
+        <li ><a href="{{ url_for('static',filename='templates/list.html') }}">List</a></li>
+        <li ><a href="{{ url_for('static',filename='templates/Identification.html') }}">Identification</a></li>  
+    </nav>
+
+    <section class="container" style="margin-left: 10%">
+        <section class="col-1">
+            
+            <div>
+                <a href="{{ url_for('static',filename='templates/Enroll.html') }}">
+                    <button style="width: 70%; height: 70%;" class="btn-grad" id="btn-accueil">
+                        <div>
+                            Enroll
+                        </div>
+                        <br>
+                        <img class="big_image" src="{{ url_for('static',filename='resources/Enroll.jpg') }}">
+                        
+                        
+                    </button>
+                </a>
+            </div>
+        </section>
+        
+        <section class="col-2">
+            <div>
+                <a href="{{ url_for('static',filename='templates/list.html') }}">
+                    <button style="width: 70%; height: 70%;" class="btn-grad" id="btn-accueil">
+                        <div>
+                            List
+                        </div>
+                        <br>
+                        <img class="big_image" src="{{ url_for('static',filename='resources/list.jpg') }}">
+                        
+                    </button>
+                </a>
+            </div>
+        </section>
+        <section class="col-3">
+            <div>
+                <a href="{{ url_for('static',filename='templates/Identification.html') }}">
+                    <button style="width: 70%; height: 70%;" class="btn-grad" id="btn-accueil">
+                        <div>
+                            Identification
+                        </div>
+                        <br>
+                        <img class="big_image" src="{{ url_for('static',filename='resources/Identification.jpg') }}">
+                        
+                    </button>
+                </a>
+            </div>
+        </section>
+    </section>
+
+    
+    <span id="verify_output"></span>
+</body>
+</html>
