@@ -1,5 +1,5 @@
 # Speaker-Recognition-AI
-A text-independent Speaker Recognition solution.  
+## A text-independent Speaker Recognition solution  
 
 If you want to run the solution :  
 - Clone the project  
@@ -10,7 +10,7 @@ If you want to run the solution :
 - Execute command :  
 > form.py  
   
-  
+
 Testing the solution :  
 - Enroll users  
 - List all the available users and delete them  
