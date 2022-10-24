@@ -6,11 +6,11 @@ import sys
 filenamel = "extracted_features/labels.npy"
 filenamef = "extracted_features/features.npy"
 
-dataf= np.load(filenamef)
+dataf= np.load(filenamef)[1:]
 datal= np.load(filenamel)
 
-print(dataf.shape)
-print(datal.shape)
+print(datal)
+
 # for x in datalabel:
 #     if x == id_number:
 #         index = datalabel.index(x)

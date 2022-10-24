@@ -121,7 +121,6 @@ def identify():
     
     if len(myresult_)==0:
             myresult_ = [('Not available', 'Not available')]
-            score = 'Not available'
 
     resp = {'first_name':myresult_[0][0], 'last_name':myresult_[0][1], 'score':score}
     mycursor.close()

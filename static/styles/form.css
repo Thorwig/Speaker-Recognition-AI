@@ -229,4 +229,6 @@ td{
 
 .delbutton{
   width: 5%;
+  position: relative;
+  left: 85%;
 }
