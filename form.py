@@ -107,7 +107,7 @@ def identify():
     os.remove('predict/identification_audio.wav')
 
 #classification
-    label,score = classifier.svm_predict()
+    label,score,rm = classifier.svm_predict()
     label = label[0]
     #label = nn_classifier.nn_predict()
 
@@ -117,12 +117,20 @@ def identify():
     mycursor = mydb.cursor(buffered=True)
     mycursor.execute("""SELECT first_name, last_name FROM user_identify where id_user LIKE'"""+str(label)+"""'""")
     myresult_ = mycursor.fetchall()
-    
+    mycursor.execute("""SELECT first_name, last_name FROM user_identify where id_user LIKE'"""+str(rm[0][0])+"""'""")
+    myresult_1 = mycursor.fetchall()
+    mycursor.execute("""SELECT first_name, last_name FROM user_identify where id_user LIKE'"""+str(rm[1][0])+"""'""")
+    myresult_2 = mycursor.fetchall()
     
     if len(myresult_)==0:
             myresult_ = [('Not available', 'Not available')]
-
-    resp = {'first_name':myresult_[0][0], 'last_name':myresult_[0][1], 'score':score}
+    if len(myresult_1)==0:
+            myresult_1 = [('Not available', 'Not available')]
+    if len(myresult_2)==0:
+            myresult_2 = [('Not available', 'Not available')]
+    resp = {'first_name':myresult_[0][0], 'last_name':myresult_[0][1], 'score':score,
+            'first_name1':myresult_1[0][0], 'last_name1':myresult_1[0][1], 'score1':rm[0][1],
+            'first_name2':myresult_2[0][0], 'last_name2':myresult_2[0][1], 'score2':rm[1][1]}
     mycursor.close()
 
     return resp

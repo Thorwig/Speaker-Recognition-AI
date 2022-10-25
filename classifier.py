@@ -28,7 +28,7 @@ def svm_classifier():
     joblib.dump(pca,filename2)
     # Simple SVM
     print('fitting...')
-    clf = SVC(C=100, gamma=0.0001 ,kernel='rbf', probability=True)
+    clf = SVC(C=10, gamma=0.001 ,kernel='rbf', probability=True)
     clf.fit(X_t_train, y_train)
     acc = clf.score(X_t_test, y_test)
     print(acc)
@@ -50,9 +50,17 @@ def svm_predict():
     X_t = pca.transform(X)
     clf = joblib.load(filename)
     predict_x = clf.predict(X_t)
-    print(clf.predict_proba(X_t)[0])
+    
+    scores = clf.predict_proba(X_t)[0]
+    top_scores = scores
+    top_scores[:] = [1-x*100 for x in top_scores]
+    top_scores.sort()
+    
+    result1 = np.where(scores==top_scores[-2])
+    result2 = np.where(scores == top_scores[-3])
+    rm = [[result1[0],top_scores[-2]],[result2[0],top_scores[-3]]]
     print(predict_x)
     score = 1 - min(clf.predict_proba(X_t)[0])*100
 
-    return predict_x, score
+    return predict_x, score,rm
 
