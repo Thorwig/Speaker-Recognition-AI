@@ -40,7 +40,6 @@ The project is focused on speaker recognition AI and has multiple core functiona
 | ⚙️ | **Architecture**   | The system follows a modular architecture with a separation of concerns. It utilizes a client-server model with Flask as the web framework. It makes use of classification models trained using SVM and contains a MySQL database for data storage.|
 | 🔗 | **Dependencies**   | The system relies on multiple external libraries such as Flask, joblib, librosa, numpy, scikit-learn, scipy, sounddevice, soundfile, and mysql_connector_repackaged. These libraries provide various functionalities such as web development, serialization, audio processing, database connectivity, noise reduction, numeric operations, machine learning, and scientific computing.|
 | ⚡️ | **Performance**    | The performance of the system depends on the hardware used and the complexity of audio processing operations. After training this model with optimal condition, an accuracy score of 97% was obtained.|
-| 🔌 | **Integrations**   | The codebase integrates with various external services, such as MySQL for database connectivity and Flask for web development. Enhancements could include integrating continuous integration (CI) tools like Jenkins or Travis CI for automated building and testing.|
 ---
 
 
